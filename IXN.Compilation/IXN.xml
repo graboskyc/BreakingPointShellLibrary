@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DriverDocumentation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="IXN" Version="1.0.1808.30996" Description="A CloudShell Automation API wrapper for the ixNetwork Controller Shell to be used within TestShell" OutputType="DLL" DriverBuilderVersion="8.2.0" xmlns="http://schemas.qualisystems.com/DriverDocumentation.xsd">
+  <Function Name="Load Configuration" Description="Reserve ports and load configuration" Folder="ixNetwork\Config" IsImplemented="true">
+    <Parameter Name="Breaking Point config file" Type="string" Direction="In" IsMandatory="true" />
+    <Parameter Name="ExecuteCommand_output" Type="string" Direction="Out" />
+  </Function>
+  <Function Name="Send ARP" Folder="ixNetwork\Protocols" IsImplemented="true">
+    <Parameter Name="CommandOutput" Type="string" Direction="Out" />
+  </Function>
+  <Function Name="Start Protocols" Folder="ixNetwork\Protocols" IsImplemented="true">
+    <Parameter Name="CommandOutput" Type="string" Direction="Out" />
+  </Function>
+  <Function Name="Get Statistics" Description="Get real time statistics" Folder="ixNetwork\Statistics" IsImplemented="true">
+    <Parameter Name="View Name" Type="string" Direction="In" DefaultValue="summary" />
+    <Parameter Name="Output Type" Type="OutputType" Direction="In" DefaultValue="csv" />
+    <Parameter Name="CommandOutput" Type="string" Direction="Out" />
+  </Function>
+  <Function Name="Start Traffic" Description="Start test for current configuration" Folder="ixNetwork\Traffic" IsImplemented="true">
+    <Parameter Name="Block" Type="Bool" Direction="In" DefaultValue="False" />
+    <Parameter Name="ExecuteCommand_output" Type="string" Direction="Out" />
+  </Function>
+  <Function Name="Stop Traffic" Description="Stop running test" Folder="ixNetwork\Traffic" IsImplemented="true" />
+  <Function Name="kill" Folder="Session" IsEndSession="true" IsImplemented="true" />
+  <Function Name="set" Folder="Session" IsStartSession="true" IsImplemented="true">
+    <Parameter Name="CloudShell Server" Type="string" Direction="In" />
+    <Parameter Name="Sandbox ID" Type="string" Direction="In" />
+    <Parameter Name="Username" Type="string" Direction="In" />
+    <Parameter Name="Password" Type="string" Direction="In" />
+    <Parameter Name="Domain" Type="string" Direction="In" />
+  </Function>
+  <Enumeration Name="Bool">
+    <Member Name="False" Value="0" />
+    <Member Name="True" Value="1" />
+  </Enumeration>
+  <Enumeration Name="ViewName">
+    <Member Name="summary" Value="0" />
+    <Member Name="iface" Value="1" />
+    <Member Name="l4stats" Value="2" />
+    <Member Name="sslstats" Value="3" />
+    <Member Name="ipsecstats" Value="4" />
+    <Member Name="l7stats" Value="5" />
+    <Member Name="clientstats" Value="6" />
+    <Member Name="attackstats" Value="7" />
+  </Enumeration>
+  <Enumeration Name="OutputType">
+    <Member Name="csv" Value="0" />
+    <Member Name="json" Value="1" />
+  </Enumeration>
+</DriverDocumentation>
